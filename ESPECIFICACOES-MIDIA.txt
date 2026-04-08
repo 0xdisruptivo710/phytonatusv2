@@ -1,0 +1,220 @@
+================================================================================
+PHYTONATUS — ESPECIFICAÇÕES DE MÍDIA PARA O TIME DE MARKETING
+Data: Abril/2025
+================================================================================
+
+Este documento lista todos os arquivos de mídia necessários para o site
+institucional do Grupo Phytonatus. Para cada item: finalidade, formato,
+dimensões, quantidade e observações técnicas.
+
+================================================================================
+SEÇÃO 1 — VÍDEOS
+================================================================================
+
+1.1 HERO — VÍDEO PRINCIPAL (Página Inicial)
+--------------------------------------------
+Finalidade    : Animação 3D do produto controlada pelo scroll do usuário.
+                O vídeo avança quadro a quadro conforme o visitante rola a página.
+Quantidade    : 1 arquivo
+Formato       : MP4 (H.264, baseline ou main profile)
+Dimensão      : 1920 × 1080 px (Full HD) — obrigatório
+Duração       : 6 a 12 segundos (animação de produto — ex: mel saindo da bisnaga)
+Framerate     : 30 fps
+OBRIGATÓRIO   : Reencoder com FFmpeg usando keyint=1 (todo frame = keyframe).
+                SEM esse encode, o scroll animation trava e congela.
+                Comando de referência:
+                  ffmpeg -i input.mp4 -c:v libx264 -g 1 -keyint_min 1
+                          -x264-params "keyint=1:min-keyint=1" -crf 18 output.mp4
+Áudio         : Silencioso (sem trilha). O atributo muted é aplicado via HTML.
+Controles     : Escondidos via CSS — o usuário não vê controls.
+Nome sugerido : hero-mel-scroll.mp4
+
+--------------------------------------------
+
+1.2 INGREDIENTES — VÍDEOS DE LOOP (Seção Ingredientes / Página Inicial)
+--------------------------------------------
+Finalidade    : Vídeo em loop contínuo dentro dos cards de ingrediente.
+                NÃO controlados por scroll — tocam automaticamente, em loop.
+Quantidade    : 4 arquivos (um por ingrediente)
+Formato       : MP4 (H.264)
+Dimensão      : 1280 × 960 px (4:3) ou 1280 × 960 mínimo
+Duração       : 4 a 8 segundos em loop suave (sem corte abrupto)
+Framerate     : 30 fps
+Encode        : Padrão — sem necessidade de keyint=1 (não são scroll-controlled)
+Áudio         : Silencioso
+Controles     : Escondidos
+
+Lista (1 arquivo cada):
+  a) ingredient-mel.mp4        — mel dourado escorrendo, favo, textura
+  b) ingredient-cacau.mp4      — cacau em PÓ disperso no ar (NÃO mostrar fruta,
+                                  baga ou árvore de cacau — apenas o pó)
+  c) ingredient-coco.mp4       — polpa de coco, fibras, óleo gotejando
+  d) ingredient-sal.mp4        — cristais de sal rosa em movimento/dispersão
+
+================================================================================
+SEÇÃO 2 — FOTOGRAFIAS
+================================================================================
+
+2.1 HERO — FOTO DE FUNDO (Placeholder até vídeo chegar)
+--------------------------------------------
+Finalidade    : Fundo da seção hero na ausência do vídeo.
+Quantidade    : 1 arquivo
+Formato       : JPG ou WebP
+Dimensão      : 2560 × 1440 px (mínimo 1920 × 1080)
+Orientação    : Paisagem (horizontal)
+Conteúdo      : Textura natural de mel, cacau ou coco — fundo escuro/dramático.
+                Deve ser escura o suficiente para texto claro ser legível por cima.
+Nome sugerido : hero-bg.jpg
+
+--------------------------------------------
+
+2.2 FOTOGRAFIAS DE MARCA (Página Marcas + Cards na Homepage)
+--------------------------------------------
+Finalidade    : Imagem de cada marca — aparece no card da homepage e na
+                seção dedicada de cada marca na página "Nossas Marcas".
+Quantidade    : 4 arquivos (1 por marca)
+Formato       : JPG ou WebP
+Dimensão      : 1200 × 1500 px (orientação retrato / vertical — proporção 4:5)
+Orientação    : Retrato
+Importante    : Área central da imagem deve ter espaço para overlay de texto
+                na parte inferior. Evitar elementos importantes nos cantos.
+
+Lista:
+  a) brand-phytonatus.jpg      — bisnaga de mel Phytonatus, fundo natural/verde
+  b) brand-emporio-mel.jpg     — potes de mel premium, fundo escuro âmbar
+  c) brand-emporio-nuts.jpg    — sal rosa, cacau em pó, temperos — flat lay escuro
+  d) brand-vida-gourmet.jpg    — produto gourmet (cookie mix), cozinha premium
+
+--------------------------------------------
+
+2.3 FOTOGRAFIAS DE INGREDIENTES (Cards — Seção Ingredientes)
+--------------------------------------------
+Finalidade    : Foto estática nos cards de ingrediente (usada até os vídeos chegarem).
+Quantidade    : 4 arquivos
+Formato       : JPG ou WebP
+Dimensão      : 900 × 680 px (proporção 4:3) — orientação paisagem
+Conteúdo      : Close dramático do ingrediente, fundo neutro ou escuro.
+ATENÇÃO       : Para o CACAU usar somente PÓ em dispersão/close.
+                NÃO usar imagem de fruta, baga ou árvore de cacau.
+
+Lista:
+  a) ingredient-mel.jpg        — favo de mel com mel gotejando
+  b) ingredient-cacau.jpg      — cacau em pó disperso no ar (somente pó)
+  c) ingredient-coco.jpg       — polpa de coco fresco, fibras, leite de coco
+  d) ingredient-sal.jpg        — cristais de sal rosa, close macro
+
+--------------------------------------------
+
+2.4 LOGOS — SUPERMERCADOS E DISTRIBUIDORES (Seção Onde Encontrar)
+--------------------------------------------
+Finalidade    : Logotipos dos pontos de venda onde os produtos Phytonatus
+                são encontrados fisicamente.
+Quantidade    : Mínimo 6, idealmente 9 logos
+Formato       : SVG (preferencial) ou PNG com fundo transparente
+Dimensão PNG  : Mínimo 300 × 150 px, fundo transparente
+Tema          : Versão monocromática (cinza escuro ou preto)
+                para manter consistência visual na grid
+
+Lista atual (2 confirmados + slots para adicionar):
+  - sonda.svg / sonda.png
+  - tust.svg / tust.png
+  - [adicionar demais distribuidores e redes parceiras]
+
+--------------------------------------------
+
+2.5 LOGOS — CLIENTES PRIVATE LABEL
+--------------------------------------------
+Finalidade    : Logos de clientes que já fazem marca própria com a Phytonatus.
+                Aparece na seção Private Label como social proof.
+Quantidade    : Mínimo 5, idealmente 8 logos
+Formato       : SVG (preferencial) ou PNG com fundo transparente
+Dimensão PNG  : Mínimo 240 × 100 px, fundo transparente
+Tema          : Monocromático (brancos/cinzas claros — fundo escuro)
+
+--------------------------------------------
+
+2.6 SELOS E CERTIFICAÇÕES (Seção Private Label)
+--------------------------------------------
+Finalidade    : Ícones/selos visuais das certificações do grupo.
+Quantidade    : 5 selos
+Formato       : SVG ou PNG
+Dimensão PNG  : 200 × 200 px mínimo, fundo transparente
+Tema          : Versão clara (branca/creme) para fundo escuro
+
+Lista:
+  - ANVISA
+  - MAPA
+  - FDA (EUA)
+  - HACCP
+  - GMP
+
+--------------------------------------------
+
+2.7 FOTOS DE FÁBRICA / ESTRUTURA PRODUTIVA (Seção Private Label)
+--------------------------------------------
+Finalidade    : Reforçar credibilidade da estrutura industrial.
+Quantidade    : 4 a 6 fotos
+Formato       : JPG ou WebP
+Dimensão      : 1600 × 1066 px (3:2) ou 1920 × 1080 (16:9)
+Conteúdo      : Interior da fábrica, linha de produção, laboratório de qualidade,
+                equipamentos modernos. Ambiente limpo, profissional.
+
+--------------------------------------------
+
+2.8 LOGO OFICIAL PHYTONATUS E SUBMARCAS
+--------------------------------------------
+Finalidade    : Header, footer e materiais gerais do site.
+Quantidade    : 5 logos (1 por marca)
+Formato       : SVG (obrigatório para nitidez em qualquer tamanho)
+                + PNG fallback 600 × 200 px, fundo transparente
+
+Lista:
+  - logo-phytonatus.svg        — marca mãe
+  - logo-emporio-mel.svg       — Empório do Mel
+  - logo-emporio-nuts.svg      — Empório Nuts
+  - logo-vida-gourmet.svg      — Vida Gourmet
+  - logo-phytonatus-mono.svg   — versão monocromática (para footer escuro)
+
+================================================================================
+SEÇÃO 3 — RESUMO EXECUTIVO (para briefing ao time)
+================================================================================
+
+PRIORIDADE ALTA (site precisa para funcionar bem):
+  [ ] Logo Phytonatus — SVG (header e footer)
+  [ ] 4 fotos de marca — 1200×1500px retrato (brand cards)
+  [ ] Hero foto fundo — 1920×1080px paisagem (placeholder até vídeo)
+  [ ] Logos supermercados — PNG transparente mínimo 6
+
+PRIORIDADE MÉDIA (melhora significativa do visual):
+  [ ] 4 fotos de ingredientes — 900×680px
+  [ ] Logos clientes private label — mínimo 5
+  [ ] Selos de certificação — 5 imagens
+  [ ] Fotos de fábrica — 4 a 6 imagens
+
+PRIORIDADE BAIXA / SEGUNDA FASE (integração de vídeo):
+  [ ] Vídeo hero scroll-controlled — 1920×1080, keyint=1 OBRIGATÓRIO
+  [ ] 4 vídeos ingredientes em loop — 1280×960
+
+================================================================================
+OBSERVAÇÕES FINAIS
+================================================================================
+
+- Todos os vídeos devem ser re-encodados com FFmpeg antes de serem inseridos
+  no site. Sem o encode correto, a animação de scroll não funciona.
+
+- Para imagens em contexto escuro (fundo preto), prefira fotos com
+  iluminação dramática e fundos já escuros ou neutros — facilitam
+  a composição com overlays.
+
+- Todos os arquivos devem ser nomeados em lowercase com hífens,
+  sem espaços ou caracteres especiais.
+  Ex: brand-emporio-mel.jpg ✓ | Empório do Mel FOTO.jpg ✗
+
+- Formatos WebP são preferidos por performance, mas JPG é aceito.
+
+- Enviar arquivos na resolução máxima disponível — a otimização
+  para web será feita automaticamente pelo desenvolvedor.
+
+================================================================================
+FIM DO DOCUMENTO
+================================================================================
