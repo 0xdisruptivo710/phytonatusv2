@@ -117,7 +117,7 @@ Tema          : Versão monocromática (cinza escuro ou preto)
 
 Lista atual (2 confirmados + slots para adicionar):
   - sonda.svg / sonda.png
-  - tust.svg / tust.png
+  - tauste.svg / tauste.png
   - [adicionar demais distribuidores e redes parceiras]
 
 --------------------------------------------
@@ -176,7 +176,7 @@ Lista:
   - logo-phytonatus-mono.svg   — versão monocromática (para footer escuro)
 
 ================================================================================
-SEÇÃO 3 — RESUMO EXECUTIVO (para briefing ao time)
+SEÇÃO 3 — RESUMO EXECUTIVO (para apresentação ao time)
 ================================================================================
 
 PRIORIDADE ALTA (site precisa para funcionar bem):
