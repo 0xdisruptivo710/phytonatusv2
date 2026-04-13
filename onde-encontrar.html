@@ -4,64 +4,75 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Onde Encontrar | Phytonatus</title>
+    <title>Nossos Clientes | Phytonatus</title>
     <meta name="description"
         content="Encontre os produtos do Grupo Phytonatus: supermercados parceiros, loja online, Amazon e Mercado Livre. Distribuidores em todo o Brasil." />
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-        /* ── Onde Encontrar specific ── */
-        .stores-section {
+        /* ── Clientes page specific ── */
+        .clients-grid-section {
             background: var(--c-cream);
         }
 
-        .stores-section-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--c-border-l);
-            border: 1px solid var(--c-border-l);
-            border-radius: 2px;
+        /* Ticker de clientes — versão full page */
+        .clients-full-ticker {
+            background: var(--c-cream);
             overflow: hidden;
+            padding-block: clamp(60px, 8vw, 100px);
         }
 
-        .store-card {
-            background: var(--c-cream);
-            aspect-ratio: 3/2;
+        .clients-full-ticker-label {
+            width: min(1280px, 94%);
+            margin-inline: auto;
+            margin-bottom: clamp(2rem, 4vw, 3.5rem);
+        }
+
+        .ticker-track-lg {
             display: flex;
-            flex-direction: column;
+            gap: clamp(4rem, 7vw, 8rem);
             align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 1.5rem;
-            transition: background 0.25s;
+            animation: tickerScroll 32s linear infinite;
+            will-change: transform;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
-        .store-card:hover {
-            background: var(--c-cream-2);
+        .ticker-track-lg:nth-child(2) {
+            animation-delay: -16s;
         }
 
-        .store-card-name {
+        .ticker-item-lg {
+            display: inline-flex;
+            align-items: center;
+            gap: 2rem;
+            flex-shrink: 0;
+        }
+
+        .ticker-item-lg-name {
             font-family: var(--f-title);
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-            font-weight: 400;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
             color: var(--c-dark);
-            letter-spacing: 0.03em;
-            text-align: center;
+            letter-spacing: -0.01em;
+            line-height: 1;
         }
 
-        .store-card-badge {
-            font-size: 0.62rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--c-muted-l);
+        .ticker-item-lg-sep {
+            color: var(--c-accent);
+            font-size: 2rem;
+            opacity: 0.4;
+            flex-shrink: 0;
         }
 
-        .store-card.placeholder .store-card-name {
-            color: rgba(15, 14, 11, 0.25);
+        .ticker-track-wrapper-lg {
+            display: flex;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
         }
 
-        .store-card.placeholder .store-card-badge {
-            color: rgba(15, 14, 11, 0.18);
+        .ticker-track-wrapper-lg:hover .ticker-track-lg {
+            animation-play-state: paused;
         }
 
         .online-section {
@@ -146,18 +157,14 @@
         }
 
         @media (max-width: 768px) {
-            .stores-section-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .online-cards-grid {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            .stores-section-grid {
-                grid-template-columns: 1fr;
+            .ticker-item-lg-name {
+                font-size: clamp(2rem, 8vw, 3rem);
             }
         }
     </style>
@@ -181,9 +188,10 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Início</a></li>
+                    <li><a href="institucional.html">Institucional</a></li>
                     <li><a href="marcas.html">Marcas</a></li>
                     <li><a href="private-label.html">Private Label</a></li>
-                    <li><a href="onde-encontrar.html" class="active">Onde Encontrar</a></li>
+                    <li><a href="onde-encontrar.html" class="active">Clientes</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
@@ -193,9 +201,10 @@
     </header>
     <nav class="mobile-menu" id="mobile-menu">
         <a href="index.html">Início</a>
+        <a href="institucional.html">Institucional</a>
         <a href="marcas.html">Marcas</a>
         <a href="private-label.html">Private Label</a>
-        <a href="onde-encontrar.html">Onde Encontrar</a>
+        <a href="onde-encontrar.html">Clientes</a>
         <a href="contato.html">Contato</a>
         <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="m-cta">Loja Online ↗</a>
     </nav>
@@ -203,10 +212,10 @@
     <!-- ═══ HERO ═══════════════════════════════════════════════ -->
     <section class="hero grain" style="min-height:55vh;">
         <div class="hero-content">
-            <p class="hero-eyebrow">Distribuição · Pontos de Venda</p>
+            <p class="hero-eyebrow">Distribuição · Parceiros</p>
             <h1 class="hero-title">
-                <span class="reveal"><span class="reveal-inner">Onde encontrar</span></span>
-                <span class="reveal"><span class="reveal-inner">nossos <em>produtos.</em></span></span>
+                <span class="reveal"><span class="reveal-inner">Nossos</span></span>
+                <span class="reveal"><span class="reveal-inner"><em>Clientes.</em></span></span>
             </h1>
             <p
                 style="color:var(--c-muted-d);font-size:clamp(0.9rem,1.5vw,1.05rem);max-width:500px;line-height:1.8;margin-top:1.5rem;">
@@ -215,58 +224,74 @@
         </div>
     </section>
 
-    <!-- ═══ SUPERMERCADOS ══════════════════════════════════════ -->
-    <section class="stores-section s-pad">
-        <div class="container">
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,6rem);align-items:end;margin-bottom:clamp(2.5rem,4vw,4rem);"
-                class="responsive-split">
-                <div>
-                    <div class="section-eyebrow">Varejo Físico</div>
-                    <h2 class="section-title-lg fade-in">Supermercados<br>e distribuidores</h2>
-                </div>
-                <p class="body-lead fade-in">
-                    Nossos produtos estão presentes nas principais redes de supermercados e lojas de produtos naturais.
-                    A disponibilidade pode variar por ponto de venda.
-                </p>
-            </div>
-
-            <div class="stores-section-grid fade-in">
-
-                <!-- Confirmados -->
-                <div class="store-card">
-                    <p class="store-card-name">Sonda</p>
-                    <p class="store-card-badge">Supermercado parceiro</p>
-                </div>
-                <div class="store-card">
-                    <p class="store-card-name">Tust</p>
-                    <p class="store-card-badge">Supermercado parceiro</p>
-                </div>
-
-                <!-- Placeholders -->
-                <div class="store-card placeholder">
-                    <p class="store-card-name">Em breve</p>
-                    <p class="store-card-badge">Logo em confirmação</p>
-                </div>
-                <div class="store-card placeholder">
-                    <p class="store-card-name">Em breve</p>
-                    <p class="store-card-badge">Logo em confirmação</p>
-                </div>
-                <div class="store-card placeholder">
-                    <p class="store-card-name">Em breve</p>
-                    <p class="store-card-badge">Logo em confirmação</p>
-                </div>
-                <div class="store-card placeholder">
-                    <p class="store-card-name">Em breve</p>
-                    <p class="store-card-badge">Logo em confirmação</p>
-                </div>
-
-            </div>
-            <p style="font-size:0.75rem;color:var(--c-muted-l);text-align:center;margin-top:1.25rem;font-style:italic;">
-                * A disponibilidade de produtos pode variar por ponto de venda e região.
+    <!-- ═══ CLIENTES — Ticker grande ══════════════════════════ -->
+    <section class="clients-full-ticker" aria-label="Nossos clientes e parceiros">
+        <div class="clients-full-ticker-label">
+            <div class="section-eyebrow">Varejo Físico</div>
+            <h2 class="section-title-lg fade-in">Supermercados<br>e distribuidores</h2>
+            <p class="body-lead fade-in" style="max-width:520px;margin-top:1rem;">
+                Nossos produtos estão presentes nas principais redes de supermercados e lojas de produtos naturais. Passe o cursor para pausar.
             </p>
-
         </div>
+
+        <div class="ticker-track-wrapper-lg" aria-hidden="true">
+            <div class="ticker-track-lg">
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+            </div>
+            <div class="ticker-track-lg" aria-hidden="true">
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Sonda</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+                <span class="ticker-item-lg">
+                    <span class="ticker-item-lg-name">Tust</span>
+                    <span class="ticker-item-lg-sep">·</span>
+                </span>
+            </div>
+        </div>
+
+        <p style="font-size:0.75rem;color:var(--c-muted-l);text-align:center;margin-top:1.5rem;font-style:italic;">
+            * A disponibilidade de produtos pode variar por ponto de venda e região.
+        </p>
     </section>
 
     <!-- ═══ CANAIS DIGITAIS ════════════════════════════════════ -->
@@ -361,6 +386,47 @@
         </div>
     </section>
 
+    <!-- ═══ MINI FORM CONTATO ═══════════════════════════════ -->
+    <div class="footer-contact-section">
+        <div class="footer-contact-inner">
+            <div class="footer-contact-info">
+                <div class="section-eyebrow" style="color:var(--c-accent);">Fale conosco</div>
+                <h3>Vamos <em style="font-style:italic;">conversar.</em></h3>
+                <p>Parceiros, distribuidores, fornecedores ou oportunidades de marca própria — nossa equipe responde em
+                    até 24h úteis.</p>
+                <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
+                    <a href="contato.html" class="btn btn-light" style="width:fit-content;font-size:0.68rem;">Formulário
+                        completo →</a>
+                    <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="btn btn-accent"
+                        style="width:fit-content;font-size:0.68rem;">Loja Online ↗</a>
+                </div>
+            </div>
+            <form class="footer-mini-form" id="footer-contact-form-clientes" novalidate>
+                <div class="float-group">
+                    <input class="float-input" type="text" id="c-footer-nome" name="nome" placeholder=" " required
+                        autocomplete="name" />
+                    <label class="float-label" for="c-footer-nome">Nome completo</label>
+                </div>
+                <div class="float-group">
+                    <input class="float-input" type="text" id="c-footer-empresa" name="empresa" placeholder=" "
+                        autocomplete="organization" />
+                    <label class="float-label" for="c-footer-empresa">Empresa (opcional)</label>
+                </div>
+                <div class="float-group">
+                    <input class="float-input" type="text" id="c-footer-contato" name="contato" placeholder=" "
+                        required />
+                    <label class="float-label" for="c-footer-contato">E-mail ou telefone</label>
+                </div>
+                <div class="float-group">
+                    <textarea class="float-input" id="c-footer-mensagem" name="mensagem"
+                        placeholder=" " required></textarea>
+                    <label class="float-label" for="c-footer-mensagem">Mensagem</label>
+                </div>
+                <button type="submit" class="btn-submit-full">Enviar mensagem</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-top">
@@ -369,7 +435,8 @@
             </div>
             <nav class="footer-nav-col" style="justify-self:center;">
                 <h4>Navegação</h4>
-                <a href="index.html">Início</a>
+                <a href="index.html">Home</a>
+                <a href="institucional.html">Institucional</a>
                 <a href="marcas.html">Marcas</a>
                 <a href="private-label.html">Private Label</a>
                 <a href="contato.html">Contato</a>

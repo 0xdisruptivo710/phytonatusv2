@@ -28,28 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ── Custom cursor ──────────────────────────────────────
+    // ── Custom cursor (abelha) ─────────────────────────────
     const cursor = document.getElementById('cursor');
     const cursorDot = document.getElementById('cursor-dot');
-    if (cursor && cursorDot) {
-        let cx = 0, cy = 0;
-        window.addEventListener('mousemove', e => {
-            cx = e.clientX; cy = e.clientY;
-            cursorDot.style.left = cx + 'px';
-            cursorDot.style.top = cy + 'px';
-        });
-        // Lag effect for the big ring
+    // Esconde o dot nativo (a abelha já tem stinger)
+    if (cursorDot) cursorDot.style.display = 'none';
+    if (cursor) {
+        let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+        window.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
         (function animateCursor() {
             const rect = cursor.getBoundingClientRect();
             const curX = rect.left + rect.width / 2;
             const curY = rect.top + rect.height / 2;
-            const x = curX + (cx - curX) * 0.12;
-            const y = curY + (cy - curY) * 0.12;
+            const x = curX + (cx - curX) * 0.13;
+            const y = curY + (cy - curY) * 0.13;
             cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
+            cursor.style.top  = y + 'px';
             requestAnimationFrame(animateCursor);
         })();
-
         document.querySelectorAll('a, button, [data-hover]').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
@@ -208,20 +204,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── Contact form submit ───────────────────────────────
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', e => {
+    const BRAND_GREEN = '#009A44';
+
+    function setupFormSubmit(formId) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        form.addEventListener('submit', e => {
             e.preventDefault();
-            const btn = contactForm.querySelector('.btn-submit-full');
-            btn.textContent = '✓ Mensagem enviada com sucesso!';
-            btn.style.background = '#4A6741';
+            const btn = form.querySelector('.btn-submit-full');
+            const original = btn.textContent;
+            btn.textContent = '✓ Mensagem enviada!';
+            btn.style.background = BRAND_GREEN;
+            btn.style.borderColor = BRAND_GREEN;
             setTimeout(() => {
-                btn.textContent = 'Enviar mensagem';
+                btn.textContent = original;
                 btn.style.background = '';
-                contactForm.reset();
+                btn.style.borderColor = '';
+                form.reset();
             }, 4000);
         });
     }
+
+    setupFormSubmit('contact-form');
+    setupFormSubmit('footer-contact-form');
+    setupFormSubmit('footer-contact-form-marcas');
+    setupFormSubmit('footer-contact-form-clientes');
+    setupFormSubmit('footer-contact-form-pl');
+    setupFormSubmit('footer-contact-form-contato');
+
 
     // ── File attachment ───────────────────────────────────
     const fileInput = document.getElementById('attach');
