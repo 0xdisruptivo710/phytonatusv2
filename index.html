@@ -55,44 +55,29 @@
   </nav>
 
   <!-- ═══ HERO ═══════════════════════════════════════════════ -->
-  <section class="hero grain" aria-label="Apresentação" style="background-image:url('assets/images/Gemini_Generated_Image_1ntgrz1ntgrz1ntg.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
-    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,18,8,0.88) 0%,rgba(26,18,8,0.65) 60%,rgba(26,18,8,0.4) 100%);z-index:1;"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Grupo Phytonatus · Produtos Naturais B2B</p>
+  <section class="hero grain" aria-label="Apresentação" style="background:var(--c-cream); color:var(--c-dark); overflow:hidden; min-height:85vh; display:flex; align-items:center;">
+    <!-- Parallax Floating Ingredients -->
+    <img src="assets/images/ingredient-mel.png" data-parallax="0.15" style="position:absolute; top:20%; right:15%; width:160px; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.1)); opacity:0.8; transform:rotate(15deg); z-index:0;" alt="">
+    <img src="assets/images/ingredient-cacau.png" data-parallax="0.08" style="position:absolute; bottom:15%; left:10%; width:180px; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.1)); opacity:0.75; transform:rotate(-10deg); z-index:0;" alt="">
+    <img src="assets/images/ingredient-coco.png" data-parallax="0.12" style="position:absolute; top:35%; left:25%; width:120px; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.1)); opacity:0.6; transform:rotate(-25deg); z-index:0;" alt="">
+    <img src="assets/images/ingredient-sal.png" data-parallax="0.2" style="position:absolute; bottom:25%; right:25%; width:200px; filter:drop-shadow(0 20px 30px rgba(0,0,0,0.1)); opacity:0.75; transform:rotate(5deg); z-index:0;" alt="">
 
-      <h1 class="hero-title">
-        <span class="reveal"><span class="reveal-inner">Produtos naturais</span></span>
-        <span class="reveal"><span class="reveal-inner">com <em>propósito.</em></span></span>
-        <span class="reveal"><span class="reveal-inner">Marcas com</span></span>
-        <span class="reveal"><span class="reveal-inner">identidade.</span></span>
+    <div class="hero-content" style="z-index:2; padding-top:6rem;">
+      <p class="hero-eyebrow" style="color:var(--c-accent);">Grupo Phytonatus</p>
+
+      <h1 class="hero-title" style="color:var(--c-dark);">
+        <span class="reveal"><span class="reveal-inner">Produtos</span></span>
+        <span class="reveal"><span class="reveal-inner"><em>naturais.</em></span></span>
       </h1>
 
-      <div class="hero-footer">
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <span class="hero-stat-num" data-count="20" data-suffix="+">20+</span>
-            <span class="hero-stat-label">Anos de mercado</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num" data-count="4" data-suffix="">4</span>
-            <span class="hero-stat-label">Marcas próprias</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num" data-count="5" data-suffix="">5</span>
-            <span class="hero-stat-label">Certificações</span>
-          </div>
-          <div class="hero-stat-item">
-            <span class="hero-stat-num">B2B</span>
-            <span class="hero-stat-label">Canal principal</span>
-          </div>
-        </div>
+      <div class="hero-footer" style="border:none; margin-top:2rem; padding-top:0;">
         <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;">
-          <a href="marcas.html" class="btn btn-light">Nossas marcas <span class="btn-arrow">→</span></a>
-          <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="btn btn-accent">Loja Online ↗</a>
+          <a href="marcas.html" class="btn btn-accent">Nossas marcas <span class="btn-arrow">→</span></a>
+          <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="btn btn-dark">Loja Online ↗</a>
         </div>
       </div>
     </div>
-    <div class="scroll-hint" style="position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;" aria-hidden="true">
+    <div class="scroll-hint" style="position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;color:var(--c-dark);" aria-hidden="true">
       Scroll
     </div>
   </section>
