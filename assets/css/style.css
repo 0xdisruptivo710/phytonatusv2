@@ -523,6 +523,7 @@ footer {
     font-weight: 500; color: var(--c-dark); letter-spacing: .02em; transition: color .2s;
 }
 .ticker-item-sep { color: var(--c-accent); font-size: 1.2rem; opacity: .5; flex-shrink: 0; }
+.ticker-item img, .ticker-item-lg img { display: inline-block; max-width: none; flex-shrink: 0; vertical-align: middle; }
 .ticker-track-wrapper:hover .ticker-track { animation-play-state: paused; }
 
 /* ═══════════════════════════════════════════════════════════
