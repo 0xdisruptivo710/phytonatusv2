@@ -551,6 +551,8 @@ footer {
 .footer-mini-form .float-input:focus ~ .float-label,
 .footer-mini-form .float-input:not(:placeholder-shown) ~ .float-label { color: var(--c-accent); }
 .footer-mini-form textarea.float-input { min-height: 100px; }
+.footer-mini-form select.float-input { padding-right: 36px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F5F1E1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.footer-mini-form select.float-input option { background: var(--c-dark-2); color: var(--c-cream); }
 .footer-mini-form .btn-submit-full { background: var(--c-accent); color: #fff; border: 1.5px solid var(--c-accent); border-radius: 100px; }
 .footer-mini-form .btn-submit-full:hover { background: transparent; color: var(--c-accent); }
 @media(max-width:760px) { .footer-contact-inner { grid-template-columns: 1fr; } }
