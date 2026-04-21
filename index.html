@@ -57,13 +57,15 @@
   <!-- ═══ HERO ═══════════════════════════════════════════════ -->
   <section class="hero grain" aria-label="Apresentação" style="background-image:url('assets/images/hero-honey-ingredients.jpg');background-size:cover;background-position:center;">
     <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,18,8,0.82) 0%,rgba(26,18,8,0.55) 60%,rgba(26,18,8,0.35) 100%);z-index:1;"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Grupo Phytonatus · Produtos Naturais</p>
-
+    <div class="hero-content" style="max-width:760px;">
       <h1 class="hero-title">
-        <span class="reveal"><span class="reveal-inner">Produtos</span></span>
-        <span class="reveal"><span class="reveal-inner"><em>naturais.</em></span></span>
+        <span class="reveal"><span class="reveal-inner">Viva o natural</span></span>
+        <span class="reveal"><span class="reveal-inner">todos os dias.</span></span>
       </h1>
+
+      <p style="color:var(--c-muted-d);font-size:clamp(1rem,1.6vw,1.15rem);max-width:560px;line-height:1.8;margin-top:1.25rem;">
+        Mel puro, sal rosa do Himalaia, derivados de coco, cacau e muito mais. Da natureza para a sua mesa.
+      </p>
 
       <div class="hero-footer">
         <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;">
@@ -72,36 +74,42 @@
         </div>
       </div>
     </div>
-    <div class="scroll-hint" style="position:absolute;bottom:2.5rem;right:2.5rem;z-index:3;" aria-hidden="true">
-      Scroll
-    </div>
   </section>
 
+  <!-- ═══ FAIXA "26 ANOS" (abaixo da imagem) ═══════════════════ -->
+  <div style="background:var(--c-cream-2);border-bottom:1px solid var(--c-border-l);">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:clamp(1rem,2vw,1.5rem);">
+      <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-muted-l);font-family:var(--f-title);font-weight:600;">
+        Grupo Phytonatus · Produtos Naturais
+      </p>
+      <p style="font-size:0.8rem;color:var(--c-dark);font-family:var(--f-title);font-weight:500;letter-spacing:0.04em;">
+        + de 26 anos de compromisso com a saudabilidade
+      </p>
+    </div>
+  </div>
+
   <!-- ═══ NOSSAS MARCAS ═══════════════════════════════════ -->
-  <section style="background:var(--c-dark-2);">
+  <section style="background:var(--c-cream);">
     <div class="container s-pad-sm">
       <div
         style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(2rem,3vw,3rem);flex-wrap:wrap;gap:1rem;">
         <div>
-          <div class="section-eyebrow" style="color:var(--c-accent);">Portfólio</div>
-          <h2 class="section-title-lg" style="color:var(--c-cream);">Nossas <em
-              style="font-style:italic;color:var(--c-accent);">Marcas</em></h2>
+          <div class="section-eyebrow">Portfólio</div>
+          <h2 class="section-title-lg" style="color:var(--c-dark);">Nossas marcas</h2>
         </div>
-        <a href="marcas.html" class="btn btn-light fade-in">Ver portfólio completo <span class="btn-arrow">→</span></a>
+        <a href="marcas.html" class="btn btn-dark fade-in">Ver portfólio completo <span class="btn-arrow">→</span></a>
       </div>
     </div>
 
     <div class="brands-grid" data-stagger="0.1">
 
-      <a href="marcas.html#phytonatus" class="brand-card" aria-label="Phytonatus Mel">
+      <a href="marcas.html#phytonatus" class="brand-card" aria-label="Phytonatus">
         <img src="assets/images/Gemini_Generated_Image_gznhxagznhxagznh.png" alt="Phytonatus — Bisnagas de Mel Puro" loading="lazy"
           data-parallax="0.1" />
         <div class="brand-card-overlay"></div>
         <div class="brand-card-content">
-          <p class="brand-card-badge" style="color:var(--c-phyto);">Mel Flores do Campo</p>
           <h3 class="brand-card-name">Phytonatus</h3>
-          <p class="brand-card-desc">A marca mãe. A bisnaga de mel que leva nosso nome direto à gôndola.</p>
-          <span class="brand-card-link" style="color:var(--c-phyto);">Saiba mais →</span>
+          <p class="brand-card-desc">O mel que vai do campo direto para a sua mesa.</p>
         </div>
       </a>
 
@@ -110,10 +118,8 @@
           data-parallax="0.1" />
         <div class="brand-card-overlay"></div>
         <div class="brand-card-content">
-          <p class="brand-card-badge" style="color:var(--c-mel);">Mel &amp; Derivados</p>
           <h3 class="brand-card-name">Empório do Mel</h3>
-          <p class="brand-card-desc">Méis por florada, própolis, spray extrato e muito mais. Pureza em cada pote.</p>
-          <span class="brand-card-link" style="color:var(--c-mel);">Saiba mais →</span>
+          <p class="brand-card-desc">Variedade e pureza em cada florada.</p>
         </div>
       </a>
 
@@ -122,10 +128,8 @@
           data-parallax="0.1" />
         <div class="brand-card-overlay"></div>
         <div class="brand-card-content">
-          <p class="brand-card-badge" style="color:var(--c-nuts);">Mercearia Natural</p>
           <h3 class="brand-card-name">Empório Nuts</h3>
-          <p class="brand-card-desc">Sal rosa, cacau 100%, óleo de coco, temperos. Rótulo limpo, sem complicação.</p>
-          <span class="brand-card-link" style="color:var(--c-nuts);">Saiba mais →</span>
+          <p class="brand-card-desc">Pureza que transforma suas receitas.</p>
         </div>
       </a>
 
@@ -134,19 +138,16 @@
           data-parallax="0.1" />
         <div class="brand-card-overlay"></div>
         <div class="brand-card-content">
-          <p class="brand-card-badge" style="color:var(--c-gourmet);">Premium Gourmet</p>
           <h3 class="brand-card-name">Vida Gourmet</h3>
-          <p class="brand-card-desc">Linha criada para quem cozinha com intenção. Produtos premium em expansão
-            constante.</p>
-          <span class="brand-card-link" style="color:var(--c-gourmet);">Saiba mais →</span>
+          <p class="brand-card-desc">Inspiração em cada preparo.</p>
         </div>
       </a>
 
     </div>
   </section>
 
-  <!-- ═══ INGREDIENTES PUROS / RÓTULO LIMPO ══════════════ -->
-  <section style="background:var(--c-cream);" class="s-pad">
+  <!-- ═══ INGREDIENTES PUROS E CLEAN LABEL ══════════════ -->
+  <section style="background:var(--c-cream-2);" class="s-pad">
     <div class="container">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center;" class="responsive-split">
         <!-- Imagem real dos ingredientes -->
@@ -158,9 +159,9 @@
         <!-- Texto -->
         <div>
           <div class="section-eyebrow">Identidade &amp; Propósito</div>
-          <h2 class="section-title-lg fade-in">Ingredientes <em style="font-style:italic;color:var(--c-accent);">puros.</em><br>Rótulo <em style="font-style:italic;color:var(--c-accent);">limpo.</em></h2>
+          <h2 class="section-title-lg fade-in">Ingredientes puros e <em style="font-style:italic;color:var(--c-accent);">clean label</em></h2>
           <p class="body-lead fade-in" style="margin-top:1.5rem;">
-            Quatro marcas, uma filosofia. Cada produto do Grupo Phytonatus é desenvolvido com ingredientes cuidadosamente selecionados — sem conservantes, sem aditivos, sem complicação. Identidade clara, rótulo honesto.
+            Valorizamos ingredientes puros e selecionados para oferecer produtos naturais que levam saúde para sua mesa.
           </p>
           <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
             <a href="marcas.html" class="btn btn-solid-accent fade-in">Conhecer as marcas <span class="btn-arrow">→</span></a>
@@ -172,17 +173,18 @@
   </section>
 
   <!-- ═══ PRIVATE LABEL TEASER ════════════════════════════ -->
-  <section class="pl-teaser grain s-pad">
+  <section class="pl-teaser-light grain s-pad" style="background:var(--c-cream);">
     <div class="container">
       <div class="pl-teaser-inner">
         <div>
-          <div class="section-eyebrow" style="color:var(--c-accent);">Terceirização</div>
-          <h2 class="pl-teaser-title fade-in">Produza sua marca<br>com a nossa <em>estrutura.</em></h2>
+          <div class="section-eyebrow"><em style="font-style:italic;">Private Label</em></div>
+          <h2 class="pl-teaser-title fade-in" style="color:var(--c-dark);">Produza sua marca com nossa estrutura.</h2>
         </div>
         <div style="display:flex;flex-direction:column;gap:1.5rem;flex-shrink:0;">
-          <p class="body-lead light fade-in" style="max-width:340px;">Estrutura industrial completa, 5 certificações e
-            mais de 20 anos de know-how a serviço da sua marca própria.</p>
-          <a href="private-label.html" class="btn btn-accent fade-in">Conhecer o processo <span
+          <p class="body-lead fade-in" style="max-width:380px;">
+            Conte com uma infraestrutura completa para a criação e produção de marcas próprias de produtos naturais, com qualidade, experiência e suporte em todas as etapas do processo.
+          </p>
+          <a href="private-label.html" class="btn btn-solid-accent fade-in">Descubra <span
               class="btn-arrow">→</span></a>
         </div>
       </div>
@@ -218,7 +220,7 @@
         <span class="ticker-item"><span class="ticker-item-name">Tauste</span><span class="ticker-item-sep">·</span></span>
       </div>
     </div>
-    <p style="font-size:0.72rem;color:var(--c-muted-l);text-align:center;padding-bottom:1.5rem;font-style:italic;">A
+    <p style="font-size:0.72rem;color:var(--c-muted-l);text-align:center;padding-bottom:1.5rem;">A
       disponibilidade pode variar por ponto de venda.</p>
   </section>
 
@@ -227,9 +229,8 @@
     <div class="footer-contact-inner">
       <div class="footer-contact-info">
         <div class="section-eyebrow" style="color:var(--c-accent);">Fale conosco</div>
-        <h3>Vamos <em style="font-style:italic;">conversar.</em></h3>
-        <p>Parceiros, distribuidores, fornecedores ou oportunidades de marca própria — nossa equipe responde em até 24h
-          úteis.</p>
+        <h3>Vamos conversar?</h3>
+        <p>Parcerias, distribuição, fornecedores e marca própria. Nossa equipe responde você.</p>
         <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
           <a href="contato.html" class="btn btn-light" style="width:fit-content;font-size:0.68rem;">Formulário completo
             →</a>
