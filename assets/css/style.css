@@ -12,33 +12,62 @@
     --c-dark-2: #231A0D;
     --c-dark-3: #2C2011;
 
-    /* Beges / Creams (Paleta Natural) */
-    --c-cream:   #F5F1E1;   /* Bege Principal Pantone 7527 C */
-    --c-cream-2: #EDE5CE;   /* Bege Contraste Pantone 468 C  */
+    /* Beges / Creams (Paleta Natural — Pantone do briefing) */
+    --c-cream:   #DDD7C7;   /* Bege Principal Pantone 7527 C */
+    --c-cream-2: #DCC9A0;   /* Bege Contraste Pantone 468 C  */
 
     /* Bordas */
     --c-border-d: rgba(255,255,255,0.09);
     --c-border-l: rgba(26,18,8,0.12);
 
-    /* Acento principal — Verde Folha Pantone 347 C */
-    --c-accent:       #009A44;
-    --c-accent-light: #87B560;  /* Verde Claro Pantone 5835 C */
+    /* Acento principal — Verde Escuro Pantone 350 C */
+    --c-accent:       #264E36;
+    --c-accent-light: #D2E3B4;  /* Verde Claro Pantone 7485 C */
 
-    /* Paleta de elementos */
-    --c-verde-folha:      #009A44;  /* Pantone 347 C  */
-    --c-verde-claro:      #ABDA9A;  /* Pantone 7485 C */
-    --c-bege:             #F5F1E1;  /* Pantone 7527 C */
-    --c-bege-contraste:   #D4B06A;  /* Pantone 468 C  */
-    --c-marrom-cafe:      #5E3817;  /* Pantone 462 C  */
-    --c-marrom-chocolate: #4A2514;  /* Pantone 4625 C */
+    /* Paleta de elementos gerais (briefing oficial) */
+    --c-verde-escuro-350:  #264E36;  /* Pantone 350 C  */
+    --c-verde-claro-7485:  #D2E3B4;  /* Pantone 7485 C */
+    --c-bege-7527:         #DDD7C7;  /* Pantone 7527 C */
+    --c-bege-468:          #DCC9A0;  /* Pantone 468 C  */
+    --c-marrom-cafe-462:   #5B4B3A;  /* Pantone 462 C  */
+    --c-marrom-choco-4625: #2C1B0A;  /* Pantone 4625 C */
 
-    /* Cores de Marca */
-    --c-phyto:   #009A44;  /* Verde Escuro 347 C   */
-    --c-phyto-2: #87B560;  /* Verde Claro 5835 C   */
-    --c-mel:     #4A2514;  /* Marrom 4625 C        */
-    --c-mel-2:   #E6B400;  /* Amarelo 7406 C       */
-    --c-nuts:    #D4150C;  /* Vermelho 485 C       */
-    --c-gourmet: #C41230;  /* Vermelho 186 C       */
+    /* ── Cores por marca (briefing 24/04 — paleta exata) ── */
+
+    /* PHYTONATUS APICULTOR (produto) */
+    --c-phyto-apicultor:        #2C1B0A;  /* Marrom 4625 C  */
+    --c-phyto-apicultor-amarelo:#F1B500;  /* Amarelo 7406 C */
+    --c-phyto-apicultor-bordo:  #3F1B1B;  /* Pantone 4975 C */
+    --c-phyto-apicultor-preto:  #241F20;  /* Pantone 412 C  */
+
+    /* PHYTONATUS MARCA MÃE */
+    --c-phyto-mae-claro:  #A1B07A;  /* Verde claro 5835 C  */
+    --c-phyto-mae-escuro: #009A44;  /* Verde escuro 347 C  */
+
+    /* EMPÓRIO DO MEL */
+    --c-mel-marrom:    #2C1B0A;  /* Marrom 4625 C  */
+    --c-mel-amarelo-1: #F4ED7C;  /* Pantone 602 C  */
+    --c-mel-amarelo-2: #F8DD7B;  /* Pantone 120 C  */
+
+    /* EMPÓRIO NUTS */
+    --c-nuts-vermelho: #DC241F;  /* Vermelho 485 C */
+    --c-nuts-bege-1:   #DDD7C7;  /* Pantone 7527 C */
+    --c-nuts-bege-2:   #D9CDA5;  /* Pantone 7502 C */
+    --c-nuts-marrom:   #2C1B0A;  /* Pantone 4625 C */
+    --c-nuts-preto:    #241F20;  /* Pantone 412 C  */
+
+    /* VIDA GOURMET */
+    --c-gourmet-vermelho: #C8102E;  /* Vermelho 186 C */
+    --c-gourmet-bege-1:   #F0E6C5;  /* Pantone 7499 C */
+    --c-gourmet-bege-2:   #DCC9A0;  /* Pantone 468 C  */
+
+    /* Aliases curtos (compatibilidade) */
+    --c-phyto:   #009A44;
+    --c-phyto-2: #A1B07A;
+    --c-mel:     #2C1B0A;
+    --c-mel-2:   #F1B500;
+    --c-nuts:    #DC241F;
+    --c-gourmet: #C8102E;
 
     /* Textos */
     --c-text-d:  rgba(245,241,225,0.88);
@@ -106,16 +135,16 @@ button { cursor: none; font-family: var(--f-body); }
 .cursor-trail-layer { position: fixed; inset: 0; pointer-events: none; z-index: 9998; }
 .cursor-trail-dot {
     position: fixed;
-    width: 7px;
-    height: 7px;
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-    background: radial-gradient(circle, #E6B400 0%, rgba(230,180,0,.55) 55%, rgba(230,180,0,0) 100%);
+    background: radial-gradient(circle, rgba(241,181,0,.55) 0%, rgba(241,181,0,.18) 60%, rgba(241,181,0,0) 100%);
     transform: translate(-50%, -50%) scale(1);
-    opacity: .95;
-    transition: opacity .85s ease-out, transform .85s ease-out;
+    opacity: .55;
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     pointer-events: none;
 }
-.cursor-trail-dot.fade { opacity: 0; transform: translate(-50%, -50%) scale(.35); }
+.cursor-trail-dot.fade { opacity: 0; transform: translate(-50%, -50%) scale(.2); }
 @media (hover: none), (max-width: 760px) {
     .cursor, .cursor-dot, .cursor-trail-layer { display: none !important; }
     a, button { cursor: auto; }
@@ -198,6 +227,16 @@ button { cursor: none; font-family: var(--f-body); }
     transition: color .3s; text-transform: uppercase;
 }
 #header.light .logo { color: var(--c-dark); }
+.logo.logo-img { display: inline-flex; align-items: center; padding: 0; }
+.logo.logo-img img {
+    height: 38px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: filter .3s;
+}
+#header.light .logo.logo-img img,
+.page-light .logo.logo-img img { filter: none; }
 
 .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -358,11 +397,7 @@ footer {
     color: var(--c-accent);
     margin-bottom: clamp(1rem,2vw,1.5rem);
 }
-.section-eyebrow::before {
-    content: ''; display: block;
-    width: 28px; height: 2px;
-    background: var(--c-accent); flex-shrink: 0;
-}
+.section-eyebrow::before { content: none; }
 
 .section-title-xl {
     font-family: var(--f-title);
@@ -430,12 +465,17 @@ footer {
     color: var(--c-muted-d); margin-bottom: clamp(1.5rem,3vw,2.5rem);
     font-family: var(--f-title); font-weight: 500;
 }
-.hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--c-accent); }
+.hero-eyebrow::before { content: none; }
 .hero-title {
     font-family: var(--f-title);
     font-size: clamp(3.5rem,9vw,9rem);
     font-weight: 300; line-height: .92; letter-spacing: -.01em;
     color: var(--c-cream); margin-bottom: clamp(2rem,4vw,3rem);
+}
+.hero-title.hero-title-xl {
+    font-size: clamp(4.2rem, 12vw, 12rem);
+    font-weight: 500;
+    letter-spacing: -.02em;
 }
 .hero-title em { font-style: normal; color: var(--c-accent); font-weight: 600; }
 .hero-footer {

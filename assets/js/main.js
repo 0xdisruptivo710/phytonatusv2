@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('mousemove', e => {
             cx = e.clientX; cy = e.clientY;
             const dx = cx - lastTrailX, dy = cy - lastTrailY;
-            if (dx * dx + dy * dy > 380) {
+            if (dx * dx + dy * dy > 1400) {
                 spawnTrailDot(cx, cy);
                 lastTrailX = cx; lastTrailY = cy;
             }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.style.top = y + 'px';
             trailLayer.appendChild(dot);
             requestAnimationFrame(() => dot.classList.add('fade'));
-            setTimeout(() => dot.remove(), 900);
+            setTimeout(() => dot.remove(), 1200);
         }
 
         (function animateCursor() {
