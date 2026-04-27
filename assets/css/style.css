@@ -229,14 +229,10 @@ button { cursor: none; font-family: var(--f-body); }
 #header.light .logo { color: var(--c-dark); }
 .logo.logo-img { display: inline-flex; align-items: center; padding: 0; }
 .logo.logo-img img {
-    height: 38px;
+    height: 42px;
     width: auto;
     display: block;
-    filter: brightness(0) invert(1);
-    transition: filter .3s;
 }
-#header.light .logo.logo-img img,
-.page-light .logo.logo-img img { filter: none; }
 
 .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
 .nav-links a {
