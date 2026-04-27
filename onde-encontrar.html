@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nossos Clientes | Phytonatus</title>
+    <title>Parceiros Comerciais | Phytonatus</title>
     <meta name="description"
         content="Encontre os produtos do Grupo Phytonatus: supermercados parceiros, loja online, Amazon e Mercado Livre. Distribuidores em todo o Brasil." />
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -191,11 +191,9 @@
                     <li><a href="institucional.html">Institucional</a></li>
                     <li><a href="marcas.html">Marcas</a></li>
                     <li><a href="private-label.html">Private Label</a></li>
-                    <li><a href="onde-encontrar.html" class="active">Clientes</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
-            <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="nav-cta">Loja Online ↗</a>
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </header>
@@ -204,19 +202,17 @@
         <a href="institucional.html">Institucional</a>
         <a href="marcas.html">Marcas</a>
         <a href="private-label.html">Private Label</a>
-        <a href="onde-encontrar.html">Clientes</a>
         <a href="contato.html">Contato</a>
-        <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="m-cta">Loja Online ↗</a>
     </nav>
 
     <!-- ═══ HERO ═══════════════════════════════════════════════ -->
     <section class="hero grain" style="min-height:70vh;background-image:url('assets/images/close-up-warehouse-view.jpg');background-size:cover;background-position:center;">
         <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,18,8,0.85) 0%,rgba(26,18,8,0.6) 100%);z-index:1;"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Distribuição · Parceiros</p>
+            <p class="hero-eyebrow">Distribuição</p>
             <h1 class="hero-title">
-                <span class="reveal"><span class="reveal-inner">Nossos</span></span>
-                <span class="reveal"><span class="reveal-inner">Clientes.</span></span>
+                <span class="reveal"><span class="reveal-inner">Parceiros</span></span>
+                <span class="reveal"><span class="reveal-inner">Comerciais.</span></span>
             </h1>
             <p style="color:var(--c-muted-d);font-size:clamp(0.95rem,1.6vw,1.1rem);max-width:640px;line-height:1.8;margin-top:1.5rem;">
                 Atuação nacional com presença estratégica em supermercados, distribuidores e lojas do segmento natural.
@@ -347,8 +343,6 @@
                 <div style="margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;">
                     <a href="contato.html" class="btn btn-light" style="width:fit-content;font-size:0.68rem;">Formulário
                         completo →</a>
-                    <a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener" class="btn btn-accent"
-                        style="width:fit-content;font-size:0.68rem;">Loja Online ↗</a>
                 </div>
             </div>
             <form class="footer-mini-form" id="footer-contact-form-clientes" novalidate>
@@ -371,9 +365,14 @@
                     <label class="float-label" for="c-footer-empresa">Empresa (opcional)</label>
                 </div>
                 <div class="float-group">
-                    <input class="float-input" type="text" id="c-footer-contato" name="contato" placeholder=" "
-                        required />
-                    <label class="float-label" for="c-footer-contato">E-mail ou telefone</label>
+                    <input class="float-input" type="email" id="c-footer-email" name="email" placeholder=" "
+                        required autocomplete="email" />
+                    <label class="float-label" for="c-footer-email">E-mail</label>
+                </div>
+                <div class="float-group">
+                    <input class="float-input" type="tel" id="c-footer-telefone" name="telefone" placeholder=" "
+                        required autocomplete="tel" />
+                    <label class="float-label" for="c-footer-telefone">Telefone</label>
                 </div>
                 <div class="float-group">
                     <textarea class="float-input" id="c-footer-mensagem" name="mensagem"
@@ -398,17 +397,21 @@
                 <a href="marcas.html">Marcas</a>
                 <a href="private-label.html">Private Label</a>
                 <a href="contato.html">Contato</a>
+                <a href="tel:+551534161170" class="footer-sac">SAC: (15) 3416-1170</a>
             </nav>
-            <div class="footer-loja-block"><a href="https://loja.phytonatus.com.br/" target="_blank" rel="noopener"
-                    class="footer-loja-link">Loja Online ↗</a></div>
         </div>
         <div class="footer-bottom">
             <p class="footer-copy">© 2025 Phytonatus · Todos os direitos reservados</p>
             <div class="footer-socials">
-                <a href="https://www.instagram.com/phytonatus/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://www.facebook.com/phytonatus/" target="_blank" rel="noopener">Facebook</a>
-                <a href="http://www.youtube.com/channel/UCMi3C9o_hySFlxIveNttSZA" target="_blank"
-                    rel="noopener">YouTube</a>
+                <a href="https://www.instagram.com/phytonatus/" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/phytonatus/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="http://www.youtube.com/channel/UCMi3C9o_hySFlxIveNttSZA" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </a>
             </div>
         </div>
     </footer>

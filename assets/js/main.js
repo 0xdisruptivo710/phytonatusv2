@@ -31,11 +31,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Custom cursor (abelha) ─────────────────────────────
     const cursor = document.getElementById('cursor');
     const cursorDot = document.getElementById('cursor-dot');
-    // Esconde o dot nativo (a abelha já tem stinger)
     if (cursorDot) cursorDot.style.display = 'none';
     if (cursor) {
         let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
-        window.addEventListener('mousemove', e => { cx = e.clientX; cy = e.clientY; });
+        let lastTrailX = cx, lastTrailY = cy;
+        const trailLayer = document.createElement('div');
+        trailLayer.className = 'cursor-trail-layer';
+        document.body.appendChild(trailLayer);
+
+        window.addEventListener('mousemove', e => {
+            cx = e.clientX; cy = e.clientY;
+            const dx = cx - lastTrailX, dy = cy - lastTrailY;
+            if (dx * dx + dy * dy > 380) {
+                spawnTrailDot(cx, cy);
+                lastTrailX = cx; lastTrailY = cy;
+            }
+        });
+
+        function spawnTrailDot(x, y) {
+            const dot = document.createElement('span');
+            dot.className = 'cursor-trail-dot';
+            dot.style.left = x + 'px';
+            dot.style.top = y + 'px';
+            trailLayer.appendChild(dot);
+            requestAnimationFrame(() => dot.classList.add('fade'));
+            setTimeout(() => dot.remove(), 900);
+        }
+
         (function animateCursor() {
             const rect = cursor.getBoundingClientRect();
             const curX = rect.left + rect.width / 2;
