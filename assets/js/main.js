@@ -32,21 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('cursor');
     const cursorDot = document.getElementById('cursor-dot');
     if (cursorDot) cursorDot.style.display = 'none';
-    if (cursor) {
+    const isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth < 760;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isTouch && cursor) cursor.style.display = 'none';
+
+    if (cursor && !isTouch) {
         let cx = window.innerWidth / 2, cy = window.innerHeight / 2;
         let lastTrailX = cx, lastTrailY = cy;
-        const trailLayer = document.createElement('div');
-        trailLayer.className = 'cursor-trail-layer';
-        document.body.appendChild(trailLayer);
+        let trailLayer = null;
+        if (!reduceMotion) {
+            trailLayer = document.createElement('div');
+            trailLayer.className = 'cursor-trail-layer';
+            document.body.appendChild(trailLayer);
+        }
 
         window.addEventListener('mousemove', e => {
             cx = e.clientX; cy = e.clientY;
+            if (!trailLayer) return;
             const dx = cx - lastTrailX, dy = cy - lastTrailY;
-            if (dx * dx + dy * dy > 1400) {
+            if (dx * dx + dy * dy > 4500) {
                 spawnTrailDot(cx, cy);
                 lastTrailX = cx; lastTrailY = cy;
             }
-        });
+        }, { passive: true });
 
         function spawnTrailDot(x, y) {
             const dot = document.createElement('span');
@@ -55,15 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.style.top = y + 'px';
             trailLayer.appendChild(dot);
             requestAnimationFrame(() => dot.classList.add('fade'));
-            setTimeout(() => dot.remove(), 1200);
+            setTimeout(() => dot.remove(), 900);
         }
 
         (function animateCursor() {
             const rect = cursor.getBoundingClientRect();
             const curX = rect.left + rect.width / 2;
             const curY = rect.top + rect.height / 2;
-            const x = curX + (cx - curX) * 0.13;
-            const y = curY + (cy - curY) * 0.13;
+            const x = curX + (cx - curX) * 0.18;
+            const y = curY + (cy - curY) * 0.18;
             cursor.style.left = x + 'px';
             cursor.style.top  = y + 'px';
             requestAnimationFrame(animateCursor);
