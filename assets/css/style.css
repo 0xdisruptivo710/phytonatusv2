@@ -611,13 +611,19 @@ footer {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-.ticker-item { display: inline-flex; align-items: center; gap: 1.25rem; flex-shrink: 0; }
+.ticker-item { display: inline-flex; align-items: center; gap: 1.25rem; flex-shrink: 0; padding-inline: 1.5rem; }
 .ticker-item-name {
     font-family: var(--f-title); font-size: clamp(1.4rem,2.5vw,2rem);
     font-weight: 500; color: var(--c-dark); letter-spacing: .02em; transition: color .2s;
 }
 .ticker-item-sep { color: var(--c-accent); font-size: 1.2rem; opacity: .5; flex-shrink: 0; }
-.ticker-item img, .ticker-item-lg img { display: inline-block; max-width: none; flex-shrink: 0; vertical-align: middle; }
+.ticker-item img, .ticker-item-lg img {
+    display: inline-block; max-width: none; flex-shrink: 0; vertical-align: middle;
+    height: 56px; width: auto; object-fit: contain;
+    filter: grayscale(0.4); opacity: .9; transition: filter .25s, opacity .25s;
+}
+.ticker-item img:hover, .ticker-item-lg img:hover { filter: none; opacity: 1; }
+.ticker-item-lg img { height: clamp(60px, 7vw, 90px); }
 .ticker-track-wrapper:hover .ticker-track { animation-play-state: paused; }
 
 /* ═══════════════════════════════════════════════════════════
