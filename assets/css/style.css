@@ -465,7 +465,9 @@ footer {
     font-size: clamp(3.5rem,9vw,9rem);
     font-weight: 300; line-height: .92; letter-spacing: -.01em;
     color: var(--c-cream); margin-bottom: clamp(2rem,4vw,3rem);
+    text-shadow: 0 2px 18px rgba(0,0,0,0.55);
 }
+.hero-content p { text-shadow: 0 1px 10px rgba(0,0,0,0.5); }
 .hero-title.hero-title-xl {
     font-size: clamp(4.2rem, 12vw, 12rem);
     font-weight: 500;
@@ -509,11 +511,11 @@ footer {
 .brand-card:hover img { transform: scale(1.07); }
 .brand-card-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(38,78,54,.9) 0%, rgba(26,18,8,.2) 50%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 50%, transparent 100%);
     transition: background .5s;
 }
 .brand-card:hover .brand-card-overlay {
-    background: linear-gradient(to top, rgba(38,78,54,.95) 0%, rgba(38,78,54,.55) 60%, rgba(26,18,8,.1) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.25) 60%, transparent 100%);
 }
 .brand-card-content {
     position: absolute; inset: 0;
