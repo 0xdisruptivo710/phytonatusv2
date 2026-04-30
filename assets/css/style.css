@@ -158,6 +158,15 @@ button { cursor: none; font-family: var(--f-body); }
 /* ── Grain overlay (desligado para performance) ──────────── */
 .grain { position: relative; }
 
+/* Overlay escuro nas heros das subpaginas — garante contraste do texto */
+.hero.grain::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* ── Reveal / fade animations ───────────────────────────── */
 .reveal { overflow: hidden; display: block; }
 .reveal-inner { display: block; transform: translateY(110%); }
@@ -172,43 +181,88 @@ button { cursor: none; font-family: var(--f-body); }
     pointer-events: none;
 }
 
-/* ── Preloader ──────────────────────────────────────────── */
+/* ── Preloader fullscreen autoral (botanical reveal) ──── */
 #preloader {
     position: fixed; inset: 0;
-    background: var(--c-cream); z-index: 9000;
+    background: radial-gradient(ellipse at 50% 38%, #FCF8E6 0%, var(--c-cream) 45%, #E8DFC2 100%);
+    z-index: 9000;
     display: flex; align-items: center; justify-content: center;
-    transition: opacity .6s, visibility .6s;
+    transition: opacity .8s, visibility .8s;
     overflow: hidden;
 }
 #preloader.done { opacity: 0; visibility: hidden; }
-#preloader > div {
-    display: flex; flex-direction: column; align-items: center;
-    gap: 1.25rem;
-    animation: preloader-fade-in .9s ease-out both;
+
+/* Folhas botânicas decorativas (2 cantos diagonais) */
+#preloader::before,
+#preloader::after {
+    content: '';
+    position: absolute;
+    width: 75vmin; height: 75vmin;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220' fill='none'><path d='M110,15 C155,55 185,100 178,145 C172,185 135,205 110,210 C85,205 48,185 42,145 C35,100 65,55 110,15 Z' fill='%23264E36' fill-opacity='0.14'/><path d='M110,28 L110,205' stroke='%23264E36' stroke-opacity='0.32' stroke-width='2'/><path d='M110,68 Q145,80 168,112' stroke='%23264E36' stroke-opacity='0.26' stroke-width='1.4' fill='none'/><path d='M110,108 Q145,122 165,158' stroke='%23264E36' stroke-opacity='0.26' stroke-width='1.4' fill='none'/><path d='M110,68 Q75,80 52,112' stroke='%23264E36' stroke-opacity='0.26' stroke-width='1.4' fill='none'/><path d='M110,108 Q75,122 55,158' stroke='%23264E36' stroke-opacity='0.26' stroke-width='1.4' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    pointer-events: none;
+    animation: preloader-breathe 5s ease-in-out infinite;
 }
-.preloader-floral {
-    width: min(680px, 86vw);
-    height: auto;
-    display: block;
-    border-radius: 6px;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,.18);
-    animation: preloader-zoom 1.1s cubic-bezier(.2,.7,.2,1) both;
+#preloader::before { top: -22vmin; left: -22vmin;  transform: rotate(-32deg); }
+#preloader::after  { bottom: -22vmin; right: -22vmin; transform: rotate(148deg); animation-delay: -2.5s; }
+
+@keyframes preloader-breathe {
+    0%,100% { opacity: .8;  filter: blur(0px); }
+    50%     { opacity: 1;   filter: blur(.5px); }
+}
+
+/* Anel ornamental atrás do logo */
+.preloader-stage {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 1.75rem;
+    animation: preloader-stage-in 1s ease-out both;
+}
+.preloader-stage::before {
+    content: '';
+    position: absolute;
+    width: clamp(420px, 50vw, 680px);
+    aspect-ratio: 1/1;
+    border: 1px solid rgba(38,78,54,0.18);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    animation: preloader-ring 6s linear infinite;
+    pointer-events: none;
+}
+@keyframes preloader-ring {
+    0%   { transform: translate(-50%,-50%) scale(.96); opacity: .4; }
+    50%  { transform: translate(-50%,-50%) scale(1.04); opacity: .8; }
+    100% { transform: translate(-50%,-50%) scale(.96); opacity: .4; }
+}
+
+.preloader-logo-img {
+    width: clamp(280px, 36vw, 520px);
+    height: auto; display: block;
+    position: relative; z-index: 1;
+    animation: preloader-logo-in 1.4s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes preloader-logo-in {
+    from { opacity: 0; transform: scale(.88) translateY(8px); }
+    to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+@keyframes preloader-stage-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 .preloader-line {
     width: 0; height: 2px;
     background: var(--c-accent);
     transition: width .8s var(--ease-out);
+    position: relative; z-index: 1;
 }
-@keyframes preloader-fade-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* Legado — esconder elementos antigos */
+.preloader-logo, .preloader-floral { display: none !important; }
+@media (max-width: 600px) {
+    .preloader-stage::before { width: 92vw; }
 }
-@keyframes preloader-zoom {
-    from { opacity: 0; transform: scale(.96); }
-    to   { opacity: 1; transform: scale(1); }
-}
-/* legado — esconder texto antigo caso ainda exista */
-.preloader-logo { display: none; }
 
 /* ═══════════════════════════════════════════════════════════
    HEADER
@@ -487,6 +541,12 @@ footer {
     background: var(--c-bg-escuro);
     display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;
 }
+.hero.hero-top-aligned { justify-content: flex-start; padding-top: clamp(8rem, 14vh, 12rem); padding-left: clamp(1.5rem, 5vw, 5rem); padding-right: clamp(1.5rem, 5vw, 5rem); padding-bottom: clamp(3rem, 6vw, 6rem); align-items: flex-start; }
+
+/* Parallax fix-attachment falla em iOS — fallback para mobile */
+@media (max-width: 900px) {
+    .pl-teaser-light { background-attachment: scroll !important; }
+}
 .hero.grain::after { z-index: 2; }
 .hero-content {
     position: relative; z-index: 3;
@@ -691,6 +751,11 @@ footer {
 .footer-contact-section {
     background: var(--c-bg-escuro-2); border-top: 1px solid var(--c-border-d);
     padding: clamp(48px,6vw,80px) 0;
+}
+/* Garante contraste em eyebrows e labels dentro do footer escuro */
+.footer-contact-section .section-eyebrow,
+.footer-contact-section .float-label {
+    color: var(--c-accent-light) !important;
 }
 .footer-contact-inner {
     width: min(1280px,94%); margin-inline: auto;
