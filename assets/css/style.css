@@ -347,8 +347,8 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
-    padding: 1.5rem 1rem;
+    gap: .35rem;
+    padding: 0.9rem 1rem;
     background: var(--c-cream);
     border: 1px solid var(--c-border-l);
     border-radius: 10px;
@@ -373,14 +373,39 @@ footer {
 .footer-socials a { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--c-muted-d); transition: color .2s; }
 .footer-socials a:hover { color: var(--c-cream); }
 .footer-socials a.social-icon { width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(245,241,225,.18); border-radius: 50%; padding: 0; }
-.footer-socials a.social-icon:hover { border-color: var(--c-accent); color: var(--c-accent); }
 .footer-socials a.social-icon svg { display: block; }
+.footer-socials a.social-icon[aria-label="Instagram"] { color: #E1306C; border-color: rgba(225,48,108,.55); }
+.footer-socials a.social-icon[aria-label="LinkedIn"]  { color: #0A66C2; border-color: rgba(10,102,194,.55); }
+.footer-socials a.social-icon[aria-label="YouTube"]   { color: #FF0000; border-color: rgba(255,0,0,.55); }
+.footer-socials a.social-icon[aria-label="Instagram"]:hover { color: #fff; background: #E1306C; border-color: #E1306C; }
+.footer-socials a.social-icon[aria-label="LinkedIn"]:hover  { color: #fff; background: #0A66C2; border-color: #0A66C2; }
+.footer-socials a.social-icon[aria-label="YouTube"]:hover   { color: #fff; background: #FF0000; border-color: #FF0000; }
 
 /* ═══════════════════════════════════════════════════════════
    SHARED SECTION STYLES
 ═══════════════════════════════════════════════════════════ */
 .s-pad    { padding-block: clamp(80px,10vw,140px); }
 .s-pad-sm { padding-block: clamp(48px,6vw,80px); }
+
+/* Wave dividers — quebram a quadratura entre seções */
+.wave-divider {
+    display: block;
+    width: 100%;
+    height: clamp(40px, 6vw, 80px);
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+}
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.wave-divider.wave-up { margin-top: calc(-1 * clamp(40px, 6vw, 80px)); }
+
 .container { width: min(1280px,94%); margin-inline: auto; }
 
 .section-eyebrow {
@@ -506,7 +531,7 @@ footer {
    BRAND CARDS TEASER
 ═══════════════════════════════════════════════════════════ */
 .brands-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 3px; }
-.brand-card { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--c-bg-escuro-2); }
+.brand-card { position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--c-bg-escuro-2); }
 .brand-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-out); will-change: transform; }
 .brand-card:hover img { transform: scale(1.07); }
 .brand-card-overlay {

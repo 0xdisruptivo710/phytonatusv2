@@ -59,23 +59,6 @@
                 <a href="#" class="btn btn-solid-accent">Catálogo <span class="btn-arrow">↓</span></a>
             </div>
         </div>
-        <!-- Índice das marcas -->
-        <div style="position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:1px solid var(--c-border-d);">
-            <div style="width:min(1280px,94%);margin-inline:auto;display:flex;overflow-x:auto;">
-                <a href="#emporio-mel"
-                    style="flex:1;min-width:160px;padding:1.25rem 1.5rem;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted-d);transition:color 0.2s;border-right:1px solid var(--c-border-d);">01
-                    · Empório do Mel</a>
-                <a href="#emporio-nuts"
-                    style="flex:1;min-width:160px;padding:1.25rem 1.5rem;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted-d);transition:color 0.2s;border-right:1px solid var(--c-border-d);">02
-                    · Empório Nuts</a>
-                <a href="#phytonatus"
-                    style="flex:1;min-width:160px;padding:1.25rem 1.5rem;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted-d);transition:color 0.2s;border-right:1px solid var(--c-border-d);">03
-                    · Phytonatus</a>
-                <a href="#vida-gourmet"
-                    style="flex:1;min-width:160px;padding:1.25rem 1.5rem;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-muted-d);transition:color 0.2s;">04
-                    · Vida Gourmet</a>
-            </div>
-        </div>
     </section>
 
     <!-- ═══ EMPÓRIO DO MEL ══════════════════════════════════ -->
@@ -175,29 +158,40 @@
     </article>
 
     <style>
+        /* Layout enxuto + hover expansivo */
+        .brand-block-full {
+            transition: grid-template-columns .7s cubic-bezier(.2,.7,.2,1);
+            min-height: 70vh !important;
+        }
+        .brand-block-full:has(.brand-block-img:hover)  { grid-template-columns: 1.6fr 1fr; }
+        .brand-block-full:has(.brand-block-info:hover) { grid-template-columns: 1fr 1.6fr; }
+        .brand-block-full .brand-block-img img { transition: transform .9s cubic-bezier(.2,.7,.2,1) !important; }
+        .brand-block-full .brand-block-img:hover img { transform: scale(1.08) !important; }
+        .brand-block-full .brand-block-img,
+        .brand-block-full .brand-block-info { transition: flex .7s, padding .7s; }
+        /* Padding interno reduzido — menos espaço nas bordas */
         .brand-block-info {
             text-align: center;
             align-items: center;
+            padding: clamp(2rem,3.5vw,4rem) clamp(1.5rem,3vw,3.5rem) !important;
         }
         .brand-block-info > * { width: 100%; max-width: 560px; }
         .brand-block-info .brand-block-products,
         .brand-block-info .brand-block-actions {
             justify-content: center;
         }
+        /* Logos uniformizados — todos no mesmo tamanho visual */
         .brand-logo-lg {
-            width: clamp(260px, 32vw, 380px);
-            height: auto;
+            width: clamp(220px, 26vw, 300px);
+            height: clamp(110px, 13vw, 150px);
+            object-fit: contain;
             margin: 0 auto 1.5rem;
             display: block;
         }
-        .brand-logo-apicultor {
-            width: clamp(220px, 26vw, 320px);
-        }
-        .brand-logo-nuts {
-            width: clamp(200px, 22vw, 260px);
-            aspect-ratio: 1 / 1;
-            object-fit: contain;
-        }
+        .brand-logo-apicultor,
+        .brand-logo-nuts { width: clamp(220px, 26vw, 300px); height: clamp(110px, 13vw, 150px); aspect-ratio: auto; }
+
+        /* ── Gradientes seguindo o padrão Phytonatus (3 stops, accent → light) ── */
         .brand-tone-phyto .brand-block-info {
             background: linear-gradient(180deg, var(--c-phyto-apicultor-amarelo) 0%, #FCE9A3 60%, #FFF6DC 100%);
         }
@@ -209,15 +203,41 @@
         .brand-tone-mel .brand-block-name,
         .brand-tone-mel .brand-block-text { color: var(--c-mel-marrom) !important; }
         .brand-tone-nuts .brand-block-info {
-            background: linear-gradient(180deg, var(--c-nuts-bege-2) 0%, var(--c-nuts-bege-1) 100%);
+            background: linear-gradient(180deg, var(--c-nuts-bege-2) 0%, var(--c-nuts-bege-1) 60%, #F5EFDC 100%);
         }
         .brand-tone-nuts .brand-block-name,
         .brand-tone-nuts .brand-block-text { color: var(--c-nuts-marrom) !important; }
         .brand-tone-gourmet .brand-block-info {
-            background: linear-gradient(180deg, var(--c-gourmet-bege-1) 0%, var(--c-gourmet-bege-2) 100%);
+            background: linear-gradient(180deg, var(--c-gourmet-bege-2) 0%, var(--c-gourmet-bege-1) 60%, #FAF3DD 100%);
         }
         .brand-tone-gourmet .brand-block-name,
         .brand-tone-gourmet .brand-block-text { color: var(--c-gourmet-vermelho) !important; }
+
+        /* ── Botão Tabela Nutricional na cor de cada marca ── */
+        .brand-tone-mel .btn-dark {
+            background: var(--c-mel-marrom); color: #fff; border-color: var(--c-mel-marrom);
+        }
+        .brand-tone-mel .btn-dark:hover {
+            background: transparent; color: var(--c-mel-marrom); border-color: var(--c-mel-marrom);
+        }
+        .brand-tone-nuts .btn-dark {
+            background: var(--c-nuts-vermelho); color: #fff; border-color: var(--c-nuts-vermelho);
+        }
+        .brand-tone-nuts .btn-dark:hover {
+            background: transparent; color: var(--c-nuts-vermelho); border-color: var(--c-nuts-vermelho);
+        }
+        .brand-tone-phyto .btn-dark {
+            background: var(--c-phyto-apicultor); color: #fff; border-color: var(--c-phyto-apicultor);
+        }
+        .brand-tone-phyto .btn-dark:hover {
+            background: transparent; color: var(--c-phyto-apicultor); border-color: var(--c-phyto-apicultor);
+        }
+        .brand-tone-gourmet .btn-dark {
+            background: var(--c-gourmet-vermelho); color: #fff; border-color: var(--c-gourmet-vermelho);
+        }
+        .brand-tone-gourmet .btn-dark:hover {
+            background: transparent; color: var(--c-gourmet-vermelho); border-color: var(--c-gourmet-vermelho);
+        }
         .brand-parent-badge {
             width: clamp(120px, 13vw, 160px);
             height: auto;
