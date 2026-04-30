@@ -16,7 +16,7 @@
     <div id="cursor-dot" class="cursor-dot"></div>
     <div id="preloader">
         <div>
-            <p class="preloader-logo">Phytonatus</p>
+            <img src="assets/images/preloader-floral.png" alt="Phytonatus" class="preloader-floral" />
             <div class="preloader-line"></div>
         </div>
     </div>
@@ -60,6 +60,12 @@
             </div>
         </div>
     </section>
+
+    <div class="wave-divider wave-up" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" fill="var(--c-cream-2)"/>
+      </svg>
+    </div>
 
     <!-- ═══ EMPÓRIO DO MEL ══════════════════════════════════ -->
     <article id="emporio-mel" class="brand-block-full brand-tone-mel">
@@ -157,6 +163,12 @@
         </div>
     </article>
 
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" fill="var(--c-cream)"/>
+      </svg>
+    </div>
+
     <style>
         /* Layout enxuto + hover expansivo */
         .brand-block-full {
@@ -169,27 +181,27 @@
         .brand-block-full .brand-block-img:hover img { transform: scale(1.08) !important; }
         .brand-block-full .brand-block-img,
         .brand-block-full .brand-block-info { transition: flex .7s, padding .7s; }
-        /* Padding interno reduzido — menos espaço nas bordas */
+        /* Padding interno enxuto — pouco espaço nas bordas */
         .brand-block-info {
             text-align: center;
             align-items: center;
-            padding: clamp(2rem,3.5vw,4rem) clamp(1.5rem,3vw,3.5rem) !important;
+            padding: clamp(1.25rem,2vw,2rem) clamp(0.75rem,1.5vw,1.5rem) !important;
         }
-        .brand-block-info > * { width: 100%; max-width: 560px; }
+        .brand-block-info > * { width: 100%; max-width: 640px; }
         .brand-block-info .brand-block-products,
         .brand-block-info .brand-block-actions {
             justify-content: center;
         }
-        /* Logos uniformizados — todos no mesmo tamanho visual */
+        /* Logos GRANDES e uniformes */
         .brand-logo-lg {
-            width: clamp(220px, 26vw, 300px);
-            height: clamp(110px, 13vw, 150px);
+            width: clamp(320px, 38vw, 460px);
+            height: clamp(160px, 18vw, 220px);
             object-fit: contain;
             margin: 0 auto 1.5rem;
             display: block;
         }
         .brand-logo-apicultor,
-        .brand-logo-nuts { width: clamp(220px, 26vw, 300px); height: clamp(110px, 13vw, 150px); aspect-ratio: auto; }
+        .brand-logo-nuts { width: clamp(320px, 38vw, 460px); height: clamp(160px, 18vw, 220px); aspect-ratio: auto; }
 
         /* ── Gradientes seguindo o padrão Phytonatus (3 stops, accent → light) ── */
         .brand-tone-phyto .brand-block-info {
